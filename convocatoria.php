@@ -22,8 +22,9 @@ session_start();
 			 $link = mysql_select_db("futbol",$con);
 
 			 $resul  = mysql_query ("SELECT * FROM complejos");
-                        $resul2 = mysql_query("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2!=14624410");
-             //$resul2= mysql_query("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2!=".$_SESSION["Id_Usuario"]);
+                      //esta linea es solo para pruebas!!!
+                      //  $resul2 = mysql_query("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2!=14624410");
+             $resul2= mysql_query("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2!=".$_SESSION["Id_Usuario"]);
                     
              if (!isset($_SESSION ["idconvo"])) {
                    $resul4 = mysql_query ("SELECT COUNT(*) as Cant FROM convocatorias");
@@ -75,7 +76,7 @@ session_start();
                     }
                 ?>
 			</td>
-			<td><input type="submit" name="agregar" value="Agregar"></td>
+			<td><input type="submit" name="agregar" value="agregar"></td>
 
         </tr>
         <tr>
