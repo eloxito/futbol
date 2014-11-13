@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?> 
 
 
@@ -10,7 +11,7 @@ session_start();
 				$fecha   =$_POST['fecha'];
 				$desc    =$_POST['descripcion'];
 				$partici =$_POST['participantes'];
-				$idconvo = $_session ["idconvo"];
+				$idconvo = $_SESSION ["idconvo"];
 
 				// CONExion A  LA BASE DE DATOS
  			$con=mysql_connect("127.0.0.1","root","mysql");
@@ -20,14 +21,20 @@ session_start();
 				//selecciono la base de datos
 			 $link = mysql_select_db("futbol",$con);
 			
- 			if ($_POST[agregar]) { 
+ 			if ($_POST['agregar']) { 
  				mysql_query ("INSERT INTO participantes VALUES(".$idconvo.",".$partici.")");
  				die("<script>location.href = 'convocatoria.php'</script>");
  			}
 
- 			if ($_POST[Crear]) { 
+ 			if ($_POST['Crear']) { 
  				mysql_query ("INSERT INTO convocatorias VALUES (".$idconvo.",".$complejo.",".$desc.")");
  				echo "Convocatoria creada, su codigo para modificar o cancelar la convocatoria es :".$idconvo;
+
+ 			}
+
+ 			if ($_POST['cancelar']) { 
+ 				mysql_query ("DELETE FROM participantes WHERE IdConvocatoria=".$idconvo);
+ 				die("<script>location.href = 'principal.php'</script>");
 
  			}
 

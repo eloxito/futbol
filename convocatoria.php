@@ -91,7 +91,7 @@ session_start();
         <tr>
         	<td><input type="submit" value="Crear" ></td>
             <td></td>
-            <td><a href="">Cancelar</a></td>
+            <td><input type="submit" name="cancelar" value="cancelar" ></td>
         </tr>
     </tbody>
 </table>
