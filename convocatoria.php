@@ -18,24 +18,22 @@ session_start();
 				if (mysqli_connect_errno()){
 				echo "fallo la conexion: ".mysqli_connect_error();
 				}				
-				//selecciono la base de datos
+				//selecciono la base de datoscxcxcxc
 			 $link = mysql_select_db("futbol",$con);
 
 			 $resul  = mysql_query ("SELECT * FROM complejos");
-                        $resul2 = $resul2= mysql_query("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2!=14624410");
+                        $resul2 = mysql_query("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2!=14624410");
              //$resul2= mysql_query("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2!=".$_SESSION["Id_Usuario"]);
                     
              if (!isset($_SESSION ["idconvo"])) {
                    $resul4 = mysql_query ("SELECT COUNT(*) as Cant FROM convocatorias");
                    $row4 = mysql_fetch_array($resul4);
                    $row4['Cant'];
-                   $_SESSION ["idconvo"]=($_SESSION ["idconvo"]+1);
+                   $_SESSION ["idconvo"]=($row4['Cant']+1);
                 } else{
                  $resul3 = mysql_query ("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN  participantes ON (usuarios.Id=participantes.IdUsuario) WHERE IdConvocatoria=".$_SESSION ["idconvo"]);   
                 }
-
-
-            
+          
         //("SELECT usuarios.Id, usuarios.Nombre FROM usuarios INNER JOIN amistad ON (usuarios.Id=amistad.IdUsuario2) WHERE IdUsuario2 !=".$_SESSION["Id_Usuario"]);
                     //("SELECT * FROM amistad WHERE IdUsuario1=".$_SESSION["Id_Usuario"]);
 					//while($row = mysql_fetch_array($resul) )	{

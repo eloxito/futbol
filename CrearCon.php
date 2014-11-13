@@ -23,7 +23,6 @@ session_start();
  			if ($_POST[agregar]) { 
  				mysql_query ("INSERT INTO participantes VALUES(".$idconvo.",".$partici.")");
  				die("<script>location.href = 'convocatoria.php'</script>");
- 				//header("refresh:1;url=convocatoria.php");
  			}
 
  			if ($_POST[Crear]) { 
